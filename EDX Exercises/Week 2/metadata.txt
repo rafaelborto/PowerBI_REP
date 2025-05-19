@@ -1,2 +1,26 @@
 https://datahelpdesk.worldbank.org/knowledgebase/articles/1886695-metadata-api-queries
 
+SHOW AND RUN COMMANDS: CRTL SHIT P
+REST CLIENT: SEND REQUEST: 
+
+preciso high light/selecionar o link
+
+https://learn.microsoft.com/en-us/power-bi/create-reports/button-navigators?tabs=powerbi-desktop
+
+https://learn.microsoft.com/en-us/power-bi/natural-language/q-and-a-tooling-teach-q-and-a
+
+
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-q-and-a?tabs=powerbi-desktop
+
+https://powerbi.microsoft.com/en-in/blog/new-card-visual-public-preview/
+
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-kpi?tabs=powerbi-desktop
+
+https://learn.microsoft.com/en-us/power-bi/consumer/end-user-report-filter
+
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-drillthrough
+
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-conditional-table-formatting
+
+https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-sparklines-tables
+
