@@ -2,3 +2,23 @@ MORE LINKS WEEK 2
 
 https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-reports-add-text-and-shapes?tabs=powerbi-desktop#add-a-text-box-to-a-report
 
+
+Use PowerPoint to Create Report Backgrounds
+
+https://www.figma.com/community/data-templates/infographics
+
+https://www.nudgebi.com/power-bi-ui-kit
+
+Performance Analyzer
+
+https://learn.microsoft.com/en-us/power-bi/guidance/power-bi-optimization
+
+https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-performance-analyzer
+
+DAX Queries
+https://daxstudio.org/
+https://learn.microsoft.com/en-us/dax/dax-queries
+
+
+Power Query Diagnostics
+https://learn.microsoft.com/en-us/power-query/query-diagnostics
