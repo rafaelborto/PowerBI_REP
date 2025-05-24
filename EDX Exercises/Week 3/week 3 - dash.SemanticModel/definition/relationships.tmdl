@@ -1,0 +1,30 @@
+relationship c3d02a8c-92e2-4224-8a68-46decb8cfb52
+	fromColumn: FactFinance.AccountKey
+	toColumn: DimAccount.AccountKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7fdb59b1-9422-47f2-b964-31422781ba92
+	fromColumn: FactFinance.DateKey
+	toColumn: DimDate.DateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 24a69d6a-edd2-4d22-a5bb-d74226b88796
+	fromColumn: FactFinance.DepartmentGroupKey
+	toColumn: DimDepartmentGroup.DepartmentGroupKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 5dbcc398-5a72-43ac-803b-566fd7e583a0
+	fromColumn: FactFinance.OrganizationKey
+	toColumn: DimOrganization.OrganizationKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 701c4f0f-2dc4-4acf-8dd5-5b4197a73e06
+	fromColumn: FactFinance.ScenarioKey
+	toColumn: DimScenario.ScenarioKey
+
+	annotation PBI_IsFromSource = FS
+

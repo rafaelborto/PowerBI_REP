@@ -1,0 +1,20 @@
+DEFINE
+	VAR __DS0FilterTable = 
+		TREATAS({"Budget"}, 'DimScenario'[ScenarioName])
+
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS(
+			'DimDate'[EnglishMonthName],
+			'DimDate'[MonthNumberOfYear],
+			__DS0FilterTable,
+			"SumAmount", CALCULATE(SUM('FactFinance'[Amount]))
+		)
+
+	VAR __DS0PrimaryWindowed = 
+		TOPN(1001, __DS0Core, 'DimDate'[MonthNumberOfYear], 1, 'DimDate'[EnglishMonthName], 1)
+
+EVALUATE
+	__DS0PrimaryWindowed
+
+ORDER BY
+	'DimDate'[MonthNumberOfYear], 'DimDate'[EnglishMonthName]

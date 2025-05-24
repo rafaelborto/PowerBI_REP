@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "week 3 - dash"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e33b605c-6c03-4b4a-a68f-018a70a550c3"
+  }
+}

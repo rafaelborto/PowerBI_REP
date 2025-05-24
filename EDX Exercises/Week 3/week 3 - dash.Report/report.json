@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.64\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"relationships\":[{\"source\":\"00e8edcf8e70e8ee99e1\",\"target\":\"120ce3ec5ca244b07ae3\",\"type\":1}]}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "d693f2ca84685a9418c5",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"00e8edcf8e70e8ee99e1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":0,\"z\":0,\"width\":288,\"height\":208,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimScenario.ScenarioName\"},{\"queryRef\":\"Sum(FactFinance.Amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimScenario\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactFinance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ScenarioName\"},\"Name\":\"DimScenario.ScenarioName\",\"NativeReferenceName\":\"ScenarioName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(FactFinance.Amount)\",\"NativeReferenceName\":\"Sum of Amount\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 208.00,
+          "width": 288.00,
+          "x": 16.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"120ce3ec5ca244b07ae3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":400,\"y\":0,\"z\":1,\"width\":544,\"height\":432,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.EnglishMonthName\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactFinance.Amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactFinance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"EnglishMonthName\"},\"Name\":\"DimDate.EnglishMonthName\",\"NativeReferenceName\":\"EnglishMonthName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(FactFinance.Amount)\",\"NativeReferenceName\":\"Sum of Amount\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"EnglishMonthName\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 432.00,
+          "width": 544.00,
+          "x": 400.00,
+          "y": 0.00,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

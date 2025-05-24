@@ -1,0 +1,105 @@
+table FactFinance
+	lineageTag: fd23b0ab-c225-4c3a-a1ed-e9b9a35b19d6
+
+	column FinanceKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b3a34b93-41ad-474d-abfa-c3ae0c192702
+		summarizeBy: count
+		sourceColumn: FinanceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 579345ef-fda2-47c4-8713-529f6015bb8a
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrganizationKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d7280455-f6f0-4d88-b3ef-3a925eb077be
+		summarizeBy: none
+		sourceColumn: OrganizationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentGroupKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 204db2a6-0386-4739-aff6-88ffa2fdcce7
+		summarizeBy: none
+		sourceColumn: DepartmentGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScenarioKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 491226ed-8faa-4c04-9815-6b71030649c2
+		summarizeBy: none
+		sourceColumn: ScenarioKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountKey
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d3e172c0-0c3e-4929-aca0-209db881b56e
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		isNullable: false
+		sourceProviderType: float
+		lineageTag: 003cd431-48d6-41a1-ac34-87a06e630eb3
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime
+		lineageTag: 01237475-36f8-44bd-b6eb-55ec8fa6687f
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactFinance = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Databases("localhost\SQLEXPRESS"),
+				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
+				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data]
+				in
+				    dbo_FactFinance
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
