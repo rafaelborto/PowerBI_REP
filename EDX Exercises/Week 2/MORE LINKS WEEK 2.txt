@@ -22,3 +22,19 @@ https://learn.microsoft.com/en-us/dax/dax-queries
 
 Power Query Diagnostics
 https://learn.microsoft.com/en-us/power-query/query-diagnostics
+
+Power BI Projects
+https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview
+https://learn.microsoft.com/en-us/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=asallproducts-allversions
+
+
+Tabular Model Definition Language (TMDL)
+https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview?view=asallproducts-allversions
+
+
+
+Introducing the Week 2 Final Exercise
+https://climate.nasa.gov/vital-signs/carbon-dioxide/?intent=121
+https://climate.nasa.gov/vital-signs/global-temperature/?intent=121
+https://chartio.com/learn/charts/what-is-a-scatter-plot/
+
