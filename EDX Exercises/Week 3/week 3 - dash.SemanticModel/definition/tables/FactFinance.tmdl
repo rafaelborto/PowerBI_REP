@@ -81,13 +81,15 @@ table FactFinance
 
 	column Date
 		dataType: dateTime
-		formatString: General Date
-		sourceProviderType: datetime
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 01237475-36f8-44bd-b6eb-55ec8fa6687f
 		summarizeBy: none
 		sourceColumn: Date
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	partition FactFinance = m
 		mode: directQuery
@@ -95,9 +97,10 @@ table FactFinance
 				let
 				    Source = Sql.Databases("localhost\SQLEXPRESS"),
 				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data]
+				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_FactFinance,{{"Date", type date}})
 				in
-				    dbo_FactFinance
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

@@ -12,19 +12,6 @@ table DimDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column FullDateAlternateKey
-		dataType: dateTime
-		isNullable: false
-		formatString: Long Date
-		sourceProviderType: date
-		lineageTag: 603b1f76-2f83-422e-a0f9-33d5fc0769dd
-		summarizeBy: none
-		sourceColumn: FullDateAlternateKey
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	column DayNumberOfWeek
 		dataType: int64
 		isNullable: false
@@ -43,26 +30,6 @@ table DimDate
 		lineageTag: 989b26cb-a13f-4796-aba3-ebb3e3c8d3bd
 		summarizeBy: none
 		sourceColumn: EnglishDayNameOfWeek
-
-		annotation SummarizationSetBy = Automatic
-
-	column SpanishDayNameOfWeek
-		dataType: string
-		isNullable: false
-		sourceProviderType: nvarchar(10)
-		lineageTag: dd20451f-530b-4786-bcd2-677f65294773
-		summarizeBy: none
-		sourceColumn: SpanishDayNameOfWeek
-
-		annotation SummarizationSetBy = Automatic
-
-	column FrenchDayNameOfWeek
-		dataType: string
-		isNullable: false
-		sourceProviderType: nvarchar(10)
-		lineageTag: d180b3a1-814e-4937-ac6c-9be9fc198aee
-		summarizeBy: none
-		sourceColumn: FrenchDayNameOfWeek
 
 		annotation SummarizationSetBy = Automatic
 
@@ -112,26 +79,6 @@ table DimDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column SpanishMonthName
-		dataType: string
-		isNullable: false
-		sourceProviderType: nvarchar(10)
-		lineageTag: cb27b856-aeaa-4aee-b878-11ff40e3b2bd
-		summarizeBy: none
-		sourceColumn: SpanishMonthName
-
-		annotation SummarizationSetBy = Automatic
-
-	column FrenchMonthName
-		dataType: string
-		isNullable: false
-		sourceProviderType: nvarchar(10)
-		lineageTag: 088d7c62-fd20-4a27-aa8f-6cb90d81f66c
-		summarizeBy: none
-		sourceColumn: FrenchMonthName
-
-		annotation SummarizationSetBy = Automatic
-
 	column MonthNumberOfYear
 		dataType: int64
 		isNullable: false
@@ -176,48 +123,21 @@ table DimDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column FiscalQuarter
-		dataType: int64
-		isNullable: false
-		formatString: 0
-		sourceProviderType: tinyint
-		lineageTag: 56ae02bc-4e77-4e02-84f9-f9e4cdd1c702
-		summarizeBy: none
-		sourceColumn: FiscalQuarter
-
-		annotation SummarizationSetBy = Automatic
-
-	column FiscalYear
-		dataType: int64
-		isNullable: false
-		formatString: 0
-		sourceProviderType: smallint
-		lineageTag: fbb089ed-9f08-426a-beba-790036b4b159
-		summarizeBy: none
-		sourceColumn: FiscalYear
-
-		annotation SummarizationSetBy = Automatic
-
-	column FiscalSemester
-		dataType: int64
-		isNullable: false
-		formatString: 0
-		sourceProviderType: tinyint
-		lineageTag: 999952ed-8f24-42eb-819e-e3a4a2018e40
-		summarizeBy: none
-		sourceColumn: FiscalSemester
-
-		annotation SummarizationSetBy = Automatic
-
 	partition DimDate = m
 		mode: directQuery
 		source =
 				let
 				    Source = Sql.Databases("localhost\SQLEXPRESS"),
 				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimDate = AdventureWorksDW2022{[Schema="dbo",Item="DimDate"]}[Data]
+				    dbo_DimDate = AdventureWorksDW2022{[Schema="dbo",Item="DimDate"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(dbo_DimDate,{"DateKey", "DayNumberOfWeek", "EnglishDayNameOfWeek", "DayNumberOfMonth", "DayNumberOfYear", "WeekNumberOfYear", "EnglishMonthName", "MonthNumberOfYear", "CalendarQuarter", "CalendarYear", "CalendarSemester"}),
+				    #"Extracted First Characters" = Table.TransformColumns(#"Removed Other Columns", {{"EnglishDayNameOfWeek", each Text.Start(_, 3), type text}}),
+				    #"Extracted First Characters1" = Table.TransformColumns(#"Extracted First Characters", {{"EnglishMonthName", each Text.Start(_, 3), type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Extracted First Characters1", each [CalendarYear] >= 2010)
 				in
-				    dbo_DimDate
+				    #"Filtered Rows"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
